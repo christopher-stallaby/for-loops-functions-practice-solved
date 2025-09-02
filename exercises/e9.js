@@ -6,7 +6,13 @@
 
 export function getClientsWithBalanceOverOneHundred(array) {
   // Your code goes here...
-
+  let result = [];
+  for (let key of array) {
+    if (key.balance > 100) {
+      result.push(key);
+    }
+  }
+  return result;
 }
 
 

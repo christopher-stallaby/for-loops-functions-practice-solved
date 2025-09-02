@@ -6,7 +6,21 @@
 
 export function getClientWithGreatestBalance(array) {
   // Your code goes here...
+  let accounts = [];
+  let maxBalance = -Infinity;
+  for (let key of array) {
+    if (key.balance > 0 && key.balance > maxBalance) {
+      maxBalance = key.balance;
+    }
+  }; // assigns maxBalance to highest non-zero balance
 
+  for (let key of array) {
+    if(key.balance === maxBalance) {
+      accounts.push(key);
+    };
+  }; // pushes data into array where maxBalance is the account balance
+
+  return accounts;
 }
 
 
