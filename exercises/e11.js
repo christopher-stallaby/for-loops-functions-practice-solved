@@ -10,7 +10,9 @@ export function getAllWithdrawals(array) {
   for (let key of array) {
     let sum = 0;
     if (key.withdrawals) {
-      sum += key.withdrawals.reduce((acc, curr) => acc + curr, 0);
+      for (let i = 0; i < key.withdrawals.length; i++) {
+        sum += key.withdrawals[i];
+      };
     };
     withdrawals.push(sum);
   }

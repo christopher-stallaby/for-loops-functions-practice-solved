@@ -12,10 +12,14 @@ export function getClientsWithWrongBalance(array) {
     let totalDeposits = 0;
     let totalWithdrawals = 0;
     if (key.deposits) {
-      totalDeposits += key.deposits.reduce((acc, curr) => acc + curr, 0);
+      for (let i = 0; i < key.deposits.length; i++) {
+        totalDeposits += key.deposits[i];
+      };
     };
     if (key.withdrawals) {
-      totalWithdrawals += key.withdrawals.reduce((acc, curr) => acc + curr, 0);
+      for (let i = 0; i < key.withdrawals.length; i++) {
+        totalWithdrawals += key.withdrawals[i];
+      };
     };
     if (totalDeposits - totalWithdrawals !== key.balance) {
       result.push(key);
