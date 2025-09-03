@@ -7,7 +7,21 @@
 
 export function getClientsWithWrongBalance(array) {
   // Your code goes here...
-
+  let result = [];
+  for (let key of array) {
+    let totalDeposits = 0;
+    let totalWithdrawals = 0;
+    if (key.deposits) {
+      totalDeposits += key.deposits.reduce((acc, curr) => acc + curr, 0);
+    };
+    if (key.withdrawals) {
+      totalWithdrawals += key.withdrawals.reduce((acc, curr) => acc + curr, 0);
+    };
+    if (totalDeposits - totalWithdrawals !== key.balance) {
+      result.push(key);
+    }
+  }
+  return result;
 }
 
 

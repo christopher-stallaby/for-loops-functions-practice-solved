@@ -6,10 +6,18 @@
 
 export function getAllDepositsGreaterThanOneHundred(array) {
   // Your code goes here...
-
-}
-
-
+  let result = [];
+  for (let key of array) {
+    if (key.deposits) {
+      for (let each of key.deposits) {
+        if (each > 100) {
+          result.push(each);
+        }
+      }
+    }
+  }
+  return result;
+};
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-12"
